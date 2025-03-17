@@ -1,7 +1,9 @@
 # 在线组卷系统
 
 ## 介绍
-![Alt text]([https://example.com/path/to/your/image.png](https://github.com/bdjbdjk1/Multi-Agent2/blob/master/%E5%9B%9B%E4%B8%AA%E6%A8%A1%E5%9D%97%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg))
+![Alt text](https://raw.githubusercontent.com/bdjbdjk1/Multi-Agent2/refs/heads/master/photo.jpg)
+
+
 
 简介：自动组卷系统，遗传算法、贪心算法，支持导入题库，手动选择、自动组卷，生成排版美观的Word文档，前后端分离WebApp，Java SpringBoot + React
 
