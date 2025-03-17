@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Web Page</title>
+    <link rel="stylesheet" href="../static/index.css">
+</head>
+<body>
+<div class="container">
+    <h1>欢迎使用多智能体题目生成器</h1>
+
+    <!-- Question Type Selection Form -->
+    <!-- Question Type Selection Form -->
+    <form action="/submit" method="post" class="form" id="questionForm">
+        <label for="question-type">请选择题目类型:</label>
+        <select name="question-type" id="question-type">
+            <option value="choice">选择题</option>
+            <option value="judgement">判断题</option>
+            <option value="fill">填空题</option>
+        </select>
+
+        <!-- Add PDF Selection to the form -->
+        <label for="pdf-file">选择PDF文件:</label>
+        <select name="pdf-file" id="pdf-file" class="form-control">
+            <!-- Options will be dynamically generated -->
+        </select>
+
+        <button type="submit">生成题目</button>
+    </form>
+
+    <!-- File Upload Form -->
+    <form action="/upload" method="post" enctype="multipart/form-data" class="form">
+        <label for="file">上传文件:</label>
+        <input type="file" name="file" id="file" accept=".txt, .pdf, .doc, .docx">
+        <button type="submit">上传</button>
+    </form>
+
+    <!-- PDF Selection and Processing -->
+
+</div>
+
+<!-- Background Image Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const images = [
+            '../static/img/bg1.jpg',
+            '../static/img/bg2.jpg',
+            '../static/img/bg3.jpg',
+            '../static/img/bg4.jpg',
+            // 添加更多图片路径...
+        ];
+
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+        document.body.style.backgroundImage = `url(${randomImage})`;
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>    $(document).ready(function() {
+    // Load PDF files when the document is ready
+    loadPdfFiles();
+
+    function loadPdfFiles() {
+        $.ajax({
+            url: "/list_pdfs",
+            type: "GET",
+            dataType: "json",
+            success: function(pdfList) {
+                // Clear any existing options
+                $("#pdf-file").empty();
+
+                // Add new options from the received list
+                $.each(pdfList, function(index, pdfName) {
+                    $("#pdf-file").append($("<option></option>").attr("value", pdfName).text(pdfName));
+                });
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log("Failed to load PDF files: " + textStatus);
+            }
+        });
+    }
+});
+</script>
+<!-- Dynamic PDF List and Processing Script -->
+
+</body>
+</html>

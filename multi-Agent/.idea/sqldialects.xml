@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/TestPapaerGen-WebApp-main/数据库表结构/dump-test_paper_generation-202205172105.sql" dialect="MySQL" />
+  </component>
+</project>

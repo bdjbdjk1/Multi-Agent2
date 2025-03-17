@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Web Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>欢迎来到我的Flask网页</h1>
+        <form action="/submit" method="post" class="form-section">
+            <label for="user_input">请输入一些内容:</label><br>
+            <input type="text" id="user_input" name="user_input"><br>
+            <input type="submit" value="提交">
+        </form>
+
+        <h1>上传文件</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data" class="form-section">
+            <input type="file" name="file" accept=".txt,.pdf,.png,.jpg,.jpeg,.gif">
+            <input type="submit" value="上传文件">
+        </form>
+
+        <h1>选择PDF文件</h1>
+        <select id="pdfSelector">
+            <!-- 选项将通过JavaScript动态生成 -->
+        </select>
+        <button id="processPdfButton">处理PDF</button>
+        <div id="response"></div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            // 动态填充PDF文件列表
+            $.getJSON('/list_pdfs', function(data){
+                $.each(data, function(index, item){
+                    $('#pdfSelector').append('<option value="' + item + '">' + item + '</option>');
+                });
+            });
+
+            // 当点击处理PDF按钮时
+            $('#processPdfButton').click(function(){
+                var selectedPdf = $('#pdfSelector').val();
+                if (selectedPdf) {
+                    $.get('/process_pdf?pdf_path=' + encodeURIComponent(selectedPdf), function(data){
+                        $('#response').html(JSON.stringify(data));
+                    });
+                } else {
+                    alert('请选择一个PDF文件');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

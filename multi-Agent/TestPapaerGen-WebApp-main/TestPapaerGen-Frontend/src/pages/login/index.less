@@ -1,0 +1,82 @@
+
+
+
+.login_container {
+  background-image: url('../../assets/images/back2.jpg'); // 确保路径正确
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh; // 确保背景图片覆盖整个视口高度
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_card {
+  background-color: rgba(255, 255, 255, 0.9); // 增加背景色的透明度
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1); // 添加阴影
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  margin-left: -700px;
+  max-width: 300px;
+  max-height: 700px;
+
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome_text {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  color: #333333;
+  font-weight: bold; // 加粗字体
+  line-height: 1.5; // 调整行高
+  margin-top: 20px;
+}
+
+.login_form {
+  margin-top: 20px;
+}
+
+.login_form_button {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.login_status_tip {
+  margin-top: 20px;
+  text-align: center;
+  color: #666;
+}
+
+.logout_btn {
+  cursor: pointer;
+  color: #007bff;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: #0056b3;
+  }
+}
+
+.registered_link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #007bff;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: #0056b3;
+  }
+}
