@@ -3,13 +3,8 @@
 ## 介绍
 ![Alt text](https://raw.githubusercontent.com/bdjbdjk1/Multi-Agent2/refs/heads/master/photo.jpg)
 
+技术栈：后端 Java SpringBoot + 前端 React 
 
-
-简介：自动组卷系统，遗传算法、贪心算法，支持导入题库，手动选择、自动组卷，生成排版美观的Word文档，前后端分离WebApp，Java SpringBoot + React
-
-技术栈：后端 Java SpringBoot + 前端 React Umi.js
-
-类型：WebApp
 
 ## 安装
 
@@ -31,14 +26,15 @@ assets：示例文件
 mvn install
 mvn package
 java -jar ./target/xxx.jar
+mvn spring-boot:run
 ```
 
 前端：标准webpack工程，在package.json目录下执行npm install拉取依赖，npm start运行工程，npm build构建工程。
 
 ```shell
 npm install
+npm run build
 npm start
-npm build
 ```
 
 数据库：记得导入数据库表结构，默认utf8mb4，数据库表结构sql文件已包含建库、建表语句。
